@@ -37,6 +37,8 @@ def Extract(soup):
         data.append(Company_Dict)
     return(data)
 data = []
-soup = Get(10)
-Joblist = pd.DataFrame(Extract(soup))
-Joblist.to_csv('Indeed.csv')
+for i in range(0,70,10):
+    soup = Get(i)
+    Extract(soup)
+Joblisting = pd.DataFrame(data)
+Joblisting.to_csv('JobListing.csv')
